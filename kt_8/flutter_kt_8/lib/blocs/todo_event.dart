@@ -1,4 +1,3 @@
-// lib/blocs/todo_event.dart
 import '../models/todo.dart';
 
 abstract class TodoEvent {}

@@ -1,4 +1,3 @@
-// lib/models/todo.dart
 class Todo {
   final String id;
   final String task;

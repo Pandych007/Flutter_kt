@@ -28,12 +28,9 @@ class TodoPage extends StatelessWidget {
                           todo.isCompleted ? 'Completed' : 'Pending',
                         ),
                         trailing: IconButton(
-                          icon: Icon(Icons.edit), // Иконка для редактирования
+                          icon: Icon(Icons.edit),
                           onPressed: () {
-                            _editTodoDialog(
-                              context,
-                              todo,
-                            ); // Вызов редактирования
+                            _editTodoDialog(context, todo);
                           },
                         ),
                       );
@@ -50,9 +47,7 @@ class TodoPage extends StatelessWidget {
                             'New Task ${DateTime.now().millisecondsSinceEpoch}',
                         isCompleted: false,
                       );
-                      context.read<TodoBloc>().add(
-                        AddTodo(newTodo),
-                      ); // Добавление новой задачи
+                      context.read<TodoBloc>().add(AddTodo(newTodo));
                     },
                     child: Text('Add Task'),
                   ),
@@ -68,7 +63,6 @@ class TodoPage extends StatelessWidget {
     );
   }
 
-  // Диалог для редактирования задачи
   void _editTodoDialog(BuildContext context, Todo todo) {
     TextEditingController controller = TextEditingController(text: todo.task);
 
@@ -89,9 +83,7 @@ class TodoPage extends StatelessWidget {
                   task: controller.text,
                   isCompleted: todo.isCompleted,
                 );
-                context.read<TodoBloc>().add(
-                  EditTodo(updatedTodo),
-                ); // Отправка события редактирования
+                context.read<TodoBloc>().add(EditTodo(updatedTodo));
                 Navigator.of(context).pop();
               },
               child: Text('Save'),

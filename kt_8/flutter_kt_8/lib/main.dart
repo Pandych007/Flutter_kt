@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:
-          (context) =>
-              TodoBloc()..add(LoadTodos()), // Загружаем задачи при старте
+      create: (context) => TodoBloc()..add(LoadTodos()),
       child: MaterialApp(
         title: 'Flutter To-Do',
         theme: ThemeData(primarySwatch: Colors.blue),
